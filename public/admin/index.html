@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Zentools Admin</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<section id="login" class="login" hidden>
+  <form id="login-form" class="panel" autocomplete="on">
+    <img src="/assets/img/logo-72.png" width="48" height="48" alt="">
+    <h1>Zentools admin</h1>
+    <label>Username<input id="lu" name="username" autocomplete="username" required></label>
+    <label>Password<input id="lp" name="password" type="password" autocomplete="current-password" required></label>
+    <p id="login-err" class="err" role="alert"></p>
+    <button class="btn primary" type="submit">Sign in</button>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <strong>Zentools admin</strong>
+    <span id="state" class="state">Saved</span>
+    <span class="sp"></span>
+    <a class="btn" href="/" target="_blank" rel="noopener">View site</a>
+    <button id="save" class="btn primary" type="button">Save changes</button>
+    <button id="logout" class="btn" type="button">Sign out</button>
+  </header>
+  <nav id="tabs" class="tabs" aria-label="Sections">
+    <button data-tab="ads" class="on">Ads</button>
+    <button data-tab="tools">Tools</button>
+    <button data-tab="apis">API keys</button>
+    <button data-tab="site">Site</button>
+    <button data-tab="security">Security &amp; backup</button>
+  </nav>
+  <main>
+    <section id="tab-ads" class="tab">
+      <div class="panel">
+        <h2>Master controls</h2>
+        <div class="grid2">
+          <label class="chk"><input type="checkbox" data-path="ads.enabled"> Show ads on the site</label>
+          <label>Ad network<select data-path="ads.mode"><option value="both">Both (choose per slot)</option><option value="adsterra">Adsterra only</option><option value="monetag">Monetag only</option><option value="none">None</option></select></label>
+          <label class="chk"><input type="checkbox" data-path="ads.label"> Show "Advertisement" label</label>
+          <label class="chk"><input type="checkbox" data-path="ads.lazy"> Lazy-load banners (faster pages)</label>
+          <label class="chk"><input type="checkbox" data-path="ads.pages.tool"> Ads on tool pages</label>
+          <label class="chk"><input type="checkbox" data-path="ads.pages.listing"> Ads on home and category pages</label>
+          <label class="chk"><input type="checkbox" data-path="ads.pages.content"> Ads on About, Contact, legal pages</label>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Page-level scripts</h2>
+        <p class="hint">Popunder, social bar, push or vignette scripts. Paste the full script tag from the network. They load on every page except tools you exclude in the Tools tab.</p>
+        <div id="globals"></div>
+      </div>
+      <div id="slots"></div>
+    </section>
+
+    <section id="tab-tools" class="tab" hidden>
+      <div class="panel">
+        <h2>Per-tool controls</h2>
+        <p class="hint">Turn a tool off, or switch ads off for it. Changes apply within a minute of saving. Tools appear here after they are added to the site.</p>
+        <input id="tool-filter" type="search" placeholder="Filter tools" aria-label="Filter tools">
+        <div class="scroll"><table id="tool-table"><thead><tr><th>Tool</th><th>Enabled</th><th>All ads</th><th>Page scripts</th><th>Top</th><th>Inline</th><th>Sidebar</th><th>Bottom</th><th>Sticky</th></tr></thead><tbody></tbody></table></div>
+        <p id="tool-empty" class="hint" hidden>No tools found yet. They will list here once you add tools and redeploy.</p>
+      </div>
+    </section>
+
+    <section id="tab-apis" class="tab" hidden>
+      <div class="panel">
+        <h2>API services</h2>
+        <p class="hint">Keys are stored on the server and never sent to visitors. A tool calls <code>ctx.api('service-name', data)</code> and the server adds the key. Services a tool declares in its <code>meta.json</code> appear automatically.</p>
+        <div id="api-list"></div>
+        <div class="row"><input id="new-api" placeholder="new-service-name" pattern="[a-z0-9_-]+" aria-label="New service name"><button id="add-api" class="btn" type="button">Add service</button></div>
+      </div>
+    </section>
+
+    <section id="tab-site" class="tab" hidden>
+      <div class="panel">
+        <h2>Analytics</h2>
+        <div class="grid2">
+          <label>Google Analytics ID<input data-path="site.gaId" placeholder="G-XXXXXXXXXX"></label>
+          <label>Cloudflare Web Analytics token<input data-path="site.cfBeacon" placeholder="token"></label>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Cookie consent</h2>
+        <label class="chk"><input type="checkbox" data-path="consent.required"> Ask for consent before loading ads and analytics</label>
+        <label>Banner text<textarea rows="2" data-path="consent.text"></textarea></label>
+      </div>
+      <div class="panel">
+        <h2>Announcement bar</h2>
+        <label class="chk"><input type="checkbox" data-path="site.announcement.enabled"> Show announcement</label>
+        <div class="grid2"><label>Text<input data-path="site.announcement.text"></label><label>Link (optional, / or https://)<input data-path="site.announcement.link"></label></div>
+      </div>
+      <div class="panel">
+        <h2>ads.txt</h2>
+        <p class="hint">Served at /ads.txt. Paste the lines your ad network gives you.</p>
+        <textarea rows="5" data-path="adsTxt" spellcheck="false"></textarea>
+      </div>
+      <div class="panel">
+        <h2>Custom code</h2>
+        <p class="hint">Runs on every page after load. Use for extra tracking or verification scripts that do not need to be in the static HTML.</p>
+        <label>Head code<textarea rows="3" data-path="site.headHtml" spellcheck="false"></textarea></label>
+        <label>End-of-body code<textarea rows="3" data-path="site.footerHtml" spellcheck="false"></textarea></label>
+      </div>
+    </section>
+
+    <section id="tab-security" class="tab" hidden>
+      <div class="panel">
+        <h2>Sessions</h2>
+        <p class="hint">Sessions last 8 hours. If you used a shared computer, sign out everywhere.</p>
+        <button id="logout-all" class="btn" type="button">Sign out of all devices</button>
+      </div>
+      <div class="panel">
+        <h2>Backup</h2>
+        <p class="hint">Exports settings without API keys. Importing keeps your existing keys.</p>
+        <div class="row"><button id="export" class="btn" type="button">Export settings</button><label class="btn">Import settings<input id="import" type="file" accept="application/json" hidden></label></div>
+      </div>
+      <div class="panel">
+        <h2>Change password</h2>
+        <p class="hint">Run <code>node scripts/hash-password.mjs "new passphrase"</code> on your computer, then update <code>ADMIN_PASSWORD_HASH</code> in Cloudflare Pages and redeploy. Use "Sign out of all devices" afterwards.</p>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="admin.js" defer></script>
+</body>
+</html>

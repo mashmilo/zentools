@@ -1,0 +1,19 @@
+{
+  "name": "Tool Name",
+  "slug": "tool-name",
+  "category": "text",
+  "tagline": "One sentence on what it does.",
+  "description": "Write 120-160 characters: what the tool does, that it is free, and the main benefit. This becomes the Google snippet.",
+  "keywords": ["tool name", "tool name online"],
+  "status": "draft",
+  "featured": false,
+  "order": 999,
+  "updated": "2026-01-01",
+  "apis": [],
+  "howto": ["Add your input.", "Adjust the options.", "Copy or download the result."],
+  "faq": [
+    { "q": "Is this tool free?", "a": "Yes. It is free to use and needs no sign-up." }
+  ],
+  "related": [],
+  "seo": { "title": "", "h1": "" }
+}

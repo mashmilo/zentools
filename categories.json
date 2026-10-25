@@ -1,0 +1,20 @@
+[
+  {"slug":"image","name":"Image Tools","schema":"MultimediaApplication","blurb":"Resize, compress, convert and edit images online. Free image tools that run in your browser, with no sign-up."},
+  {"slug":"pdf","name":"PDF Tools","schema":"BusinessApplication","blurb":"Merge, split, compress, convert and edit PDF files online for free."},
+  {"slug":"document","name":"Document & eBook Converters","schema":"BusinessApplication","blurb":"Convert documents, spreadsheets, presentations and eBooks between popular formats."},
+  {"slug":"audio-video","name":"Audio & Video Tools","schema":"MultimediaApplication","blurb":"Convert, trim, compress and edit audio and video files online."},
+  {"slug":"math","name":"Math Calculators","schema":"EducationalApplication","blurb":"Free math calculators for algebra, geometry, statistics, matrices and more."},
+  {"slug":"finance","name":"Finance Calculators","schema":"FinanceApplication","blurb":"Loan, mortgage, investment, tax and business finance calculators."},
+  {"slug":"health","name":"Health & Fitness Calculators","schema":"HealthApplication","blurb":"BMI, calorie, body fat and other health and fitness calculators."},
+  {"slug":"date-time","name":"Date & Time Tools","schema":"UtilitiesApplication","blurb":"Date calculators, timers, clocks and time zone tools."},
+  {"slug":"converters","name":"Unit Converters","schema":"UtilitiesApplication","blurb":"Convert length, weight, temperature, speed, energy and other units quickly."},
+  {"slug":"text","name":"Text Tools","schema":"UtilitiesApplication","blurb":"Count, convert, compare, format and generate text online."},
+  {"slug":"developer","name":"Developer Tools","schema":"DeveloperApplication","blurb":"Formatters, minifiers, converters and generators for developers."},
+  {"slug":"network","name":"Network & Security Tools","schema":"UtilitiesApplication","blurb":"IP, DNS, port, SSL and security checking tools."},
+  {"slug":"seo","name":"SEO & Webmaster Tools","schema":"BusinessApplication","blurb":"Schema, sitemap, robots.txt and site analysis tools for webmasters."},
+  {"slug":"color-design","name":"Color & CSS Tools","schema":"DesignApplication","blurb":"Color converters, palette generators and CSS generators."},
+  {"slug":"crypto-web3","name":"Crypto & Web3 Tools","schema":"FinanceApplication","blurb":"Address validators, unit converters and encoders for crypto and Web3."},
+  {"slug":"data-science","name":"Statistics & Data Science","schema":"EducationalApplication","blurb":"Statistics, probability and machine learning calculators."},
+  {"slug":"geo","name":"Maps & Geo Tools","schema":"UtilitiesApplication","blurb":"Coordinate converters, distance calculators and geospatial tools."},
+  {"slug":"fun","name":"Games & Fun","schema":"GameApplication","blurb":"Random pickers, puzzles, solvers and small games."}
+]

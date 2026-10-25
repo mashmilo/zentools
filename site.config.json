@@ -1,0 +1,17 @@
+{
+  "name": "Zentools",
+  "alternateName": ["Zen Tools"],
+  "url": "https://zentools.pages.dev",
+  "tagline": "Free online tools that just work",
+  "description": "Zentools is a growing collection of free online tools: image editing, PDF utilities, calculators, converters, text and developer tools. No sign-up, fast, and made to work in your browser.",
+  "language": "en",
+  "locale": "en_US",
+  "themeColor": "#2BC088",
+  "email": "",
+  "twitter": "",
+  "ogImage": "/assets/img/og-default.png",
+  "verification": {
+    "google": "",
+    "bing": ""
+  }
+}

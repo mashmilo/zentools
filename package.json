@@ -1,0 +1,13 @@
+{
+  "name": "zentools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zentools – static tools website for Cloudflare Pages with a secure admin panel.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "new-tool": "node scripts/new-tool.js",
+    "hash": "node scripts/hash-password.mjs",
+    "dev": "node scripts/build.js && npx wrangler pages dev dist --kv=ZT_KV"
+  },
+  "engines": { "node": ">=18" }
+}
